@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Connexion {% endblock %}
+    {% block body %}
+        <h1>Connexion</h1>
+        <form action="{{ path('security_login') }}" method="post">
+            <fieldset>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                           placeholder="Enter email" required name="_username">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1"
+                           required name="_password" placeholder="Password">
+                </div>
+                <div class="form-group">
+
+                    <button class="btn btn-success" type="submit"> Connection </button>
+                </div>
+            </fieldset>
+
+        </form>
+
+
+    {% endblock %}

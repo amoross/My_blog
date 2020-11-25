@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Registration {% endblock %}
+    {% block body %}
+        <h1>Inscription sur le site </h1>
+
+        {{ form_start(formRegister) }}
+        {{form_row(formRegister.username,  {'label': 'Nom d\'utilisation','attr' : {'placeholder':'name'}}) }}
+        {{form_row(formRegister.email,  {'label': 'adresse emaim','attr' : {'placeholder':'Adresse Email'}}) }}
+        {{form_row(formRegister.password,  {'label': 'mot de passe','attr' : {'placeholder':'mot de passe'}}) }}
+        {{form_row(formRegister.confirm_password,  {'label': 'comfirmation du mot de passe',
+            'attr' : {'placeholder':'confirmation du mot de passe'}}) }}
+
+        <button class="btn btn-success" type="submit"> Inscription </button>
+        {{ form_end(formRegister) }}
+
+
+    {% endblock %}

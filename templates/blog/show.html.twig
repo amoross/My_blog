@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}Hello ControllerBlogController!{% endblock %}
+
+    {% block body %}
+
+        <article>
+            <h2>{{ article.title }}</h2>
+            <div class="metadata" > Ecrit le {{ article.createdAt | date('d/m/y')}}  à
+                {{ article.createdAt | date('H:i')}} dans le categorie  {{ article.category.title }}
+                politique</div>
+            <div class="content">
+                <img src="{{ article.image }}" alt="">
+                {{ article.content | raw}}
+            </div>
+        </article>
+
+        <section class="commentaire">
+            <h1> {{ article.comments | length }} Commentaires </h1>
+            {% for comment in article.comments %}
+                <div class="comment">
+                    <div class="row">
+                        <div class="col-3">
+                            {{ comment.author  }} (<small>{{ comment.createdAt | date('d/m/y à H:i')}} </small>)
+                        </div>
+                        <div class="col">
+                            {{ comment.text | raw }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% if app.user%}
+                {{ form_start(commentForm) }}
+                {{ form_row(commentForm.author , {'attr' : {'placeholder':"nom de l'auteur"}}) }}
+                {{ form_row(commentForm.content, {'attr' : {'placeholder':"contenu de l'article"}}) }}
+
+
+                <button class="btn btn-success" type="submit">
+                    commenter !
+                </button>
+
+                {{ form_end(commentForm) }}
+            {% else %}
+                <h3> Vous ne pouvez pas commenter si vous n'êtes pas connecter </h3>
+            {% endif %}
+        </section>
+
+    {% endblock %}
