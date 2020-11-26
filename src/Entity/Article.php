@@ -18,18 +18,21 @@ class Article
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min=10,max=255)
+      * @Groups("post:read")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
      * @Assert\Length(min=10)
+     * @Groups("post:read")
      */
     private $content;
 
@@ -41,6 +44,7 @@ class Article
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups("post:read")
      */
     private $createdAt;
 
@@ -154,4 +158,5 @@ class Article
 
         return $this;
     }
+
 }
