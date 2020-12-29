@@ -47,6 +47,17 @@ class BlogController extends AbstractController
      */
     public function form(Article $article = null,Request $request, EntityManagerInterface $manager)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+        if (strcmp($request->get('_route'), 'blog_edit') == 0) {
+            if (!$article) {
+                throw new \Exception('Article innexistant !');
+            }
+            elseif ($article->getUsers()->getId() != $this->getUser()->getId())
+            {
+                throw new \Exception('Vous n\'êtes pas l\'auteur de cet article !');
+            }
+        }
         if (!$article) {
             $article = new Article();
         }
@@ -58,6 +69,7 @@ class BlogController extends AbstractController
             if(!$article->getId()) {
                 $article->setCreatedAt(new \DateTime());
             }
+            $article->setUser($this->getUser());
             $manager->persist($article);
             $manager->flush();
 
@@ -93,26 +105,22 @@ class BlogController extends AbstractController
 
         return $this->render('blog/show.html.twig',[
             'article'=>$article ,
-            'commentForm'=> $form->createView()
+            'commentForm'=> $form->createView() 
         ]);
 
     }
 
     /**
-     * @Route("/blog/{id}/delete", name="post_delete", methods={"DELETE"})
+     * @Route("/blog/{id}/delete", name="blog_delete")
      */
-    public function delete(Request $request,int $id): Response
+    public function deleteArticle (Article $article,EntityManagerInterface $entityManager):Response
     {
-        $post = $this->getDoctrine()
-            ->getRepository(Article::class)
-            ->findOneBy(['id' => $id]);
-
-        if ($this->isCsrfTokenValid('delete'.$post->getid(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($post);
-            $entityManager->flush();
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        if ($article->getUsers()->getId() != $this->getUser()->getId()) {
+            throw new \Exception('Vous n\'êtes pas l\'auteur de cet article !');
         }
-
+        $entityManager->remove($article);
+        $entityManager->flush();
         return $this->redirectToRoute('blog');
     }
 

@@ -3,10 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -25,6 +27,11 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @Gedmo\Slug(fields={"title", "publicationDate"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    private $slug;
+    /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Email()
      */
@@ -37,7 +44,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min=8 ,minMessage =" votre mot de passe doit comprendre au moins 8 caractères")
+     *  @Assert\Length(min=8 ,minMessage =" votre mot de passe doit comprendre au moins 8 caractères")
      */
     private $password;
 
@@ -46,9 +53,18 @@ class User implements UserInterface
      */
     public $confirm_password;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="users")
+     */
+    private $articles;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+    public function getSlug(): ?string
+    {
+        return $this->slug;
     }
 
     public function getEmail(): ?string
@@ -83,6 +99,23 @@ class User implements UserInterface
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
+    }
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setUser($this);
+        }
 
         return $this;
     }
