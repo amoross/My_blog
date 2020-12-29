@@ -33,7 +33,7 @@
             {% if app.user%}
                 {{ form_start(commentForm) }}
                 {{ form_row(commentForm.author , {'attr' : {'placeholder':"nom de l'auteur"}}) }}
-                {{ form_row(commentForm.content, {'attr' : {'placeholder':"contenu de l'article"}}) }}
+                {{ form_row(commentForm.text, {'attr' : {'placeholder':"contenu de l'article"}}) }}
 
 
                 <button class="btn btn-success" type="submit">

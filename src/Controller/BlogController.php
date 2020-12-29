@@ -43,10 +43,13 @@ class BlogController extends AbstractController
 
     /**
      * @Route("/blog/new/a",name="blog_creat")
+     * @Route("/blog/{id}/edit" , name="blog_edit")
      */
-    public function form(Request $request, EntityManagerInterface $manager)
+    public function form(Article $article = null,Request $request, EntityManagerInterface $manager)
     {
+        if (!$article) {
             $article = new Article();
+        }
 
         $form=$this->createForm(ArticleType::class,$article);
 
@@ -66,6 +69,8 @@ class BlogController extends AbstractController
         ]);
 
     }
+
+
     /**
      * @Route("/blog/{id}",name="blog_show",requirements={"id":"\d+"})
      */
@@ -91,6 +96,24 @@ class BlogController extends AbstractController
             'commentForm'=> $form->createView()
         ]);
 
+    }
+
+    /**
+     * @Route("/blog/{id}/delete", name="post_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request,int $id): Response
+    {
+        $post = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->findOneBy(['id' => $id]);
+
+        if ($this->isCsrfTokenValid('delete'.$post->getid(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($post);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('blog');
     }
 
 }

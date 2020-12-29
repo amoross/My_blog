@@ -12,13 +12,15 @@
   <component name="ChangeListManager">
     <list default="true" id="53c05182-6e0a-41e9-8bbd-20a6cfc23665" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Blog.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BlogController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,6 +138,8 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
       <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kdkk0AqpLcPgZScw740ACxSPpe" />
@@ -163,11 +167,16 @@
       <workItem from="1606037996946" duration="4930000" />
       <workItem from="1606044081592" duration="7317000" />
       <workItem from="1606312635671" duration="1858000" />
+      <workItem from="1609173177171" duration="5463000" />
+      <workItem from="1609193661962" duration="6042000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -180,19 +189,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="472" y="78" width="412" height="645" key="#com.intellij.ide.util.MemberChooser" timestamp="1606049822190">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="472" y="78" width="412" height="645" key="#com.intellij.ide.util.MemberChooser/0.27.1366.741@0.27.1366.741" timestamp="1606049822190" />
-    <state x="416" y="146" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606044812145">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="416" y="146" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1366.741@0.27.1366.741" timestamp="1606044812145" />
-    <state x="416" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606049406940">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="416" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1366.741@0.27.1366.741" timestamp="1606049406940" />
   </component>
 </project>

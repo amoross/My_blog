@@ -107,6 +107,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-code" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-eventmanager" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/jms/metadata" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/vich/uploader-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
