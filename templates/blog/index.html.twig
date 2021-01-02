@@ -3,19 +3,30 @@
     {% block title %}Hello BlogController!{% endblock %}
 
     {% block body %}
-        {% for article in articles %}
-            <article>
-                <h2>{{ article.title }}</h2>
-                <div class="metadata" > Ecrit le {{ article.createdAt | date('d/m/y')}}  à
-                    {{ article.createdAt | date('H:i')}}dans le categorie {{ article.category.title }}
-                </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4" style="display: flex; flex-direction: row-reverse;">
+            {% for article in articles |sort  %}
+            <div class="card" >
+            <div class="card border-primary mb-3" style="max-width: 19rem;">
+                {% if article.image %}
+                <img src="{{vich_uploader_asset( article , 'imageFile') |  imagine_filter('my_thumb') }}" class="card-img-top" alt="">
+                {% endif %}
+                <div class="card-body">
+                <div class="card-title" > {{ article.title }}</div>
+                <div class="card-text">
                 <div class="content">
-                    <img src="{{ article.image }}" alt="">
-                    {{ article.content | raw}}
-                    <a href="{{ path('blog_show',{'id' : article.id}) }}" class="btn.btn-primary"> lire la suite</a>
+{#                    {{ article.content | raw}}#}
+                    <a href="{{ path('blog_show',{'id' : article.id}) }}" class="btn btn-secondary"> lire l'article </a>
                 </div>
-            </article>
-        {% endfor %}
+                </div>
+                </div>
+                <div class="card-footer">
+                    Ecrit le {{ article.createdAt | date('d/m/y')}}  à
+                    {{ article.createdAt | date('H:i')}} dans la categorie {{ article.category.title }}
+                    </div>
 
+                {#            </article>#}
+            </div> </div>
+        {% endfor %}
+</div>
 
     {% endblock %}

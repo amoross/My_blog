@@ -13,7 +13,7 @@ class ArticlesFixtures extends Fixture
     public function load(ObjectManager $manager){
 
         //creer 3 fack  category
-        $faker = \Faker\Factory::create('fr_FR');
+        $faker = \Faker\Factory::create();
         for ($i=0; $i<=3; $i++) {
             $category = new Category();
             $category->setTitle($faker->sentence())
@@ -31,7 +31,8 @@ class ArticlesFixtures extends Fixture
                     ->setContent($content)
                     ->setImage($faker->imageUrl())
                     ->setCreatedAt($faker->dateTimeBetween('-6 months'))
-                    ->setCategory($category);
+                    ->setCategory($category)
+                    ->setUsers(null);
 
                 $manager->persist($article);
 

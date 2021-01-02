@@ -4,13 +4,20 @@
 
     {% block body %}
 
+        <div class="card bg-dark text-white">
+            {% if article.image %}
+                <img src="/upload/images/{{ article.image }}"  class="card-img" alt="">
+            {% endif %}
+        </div>
+
+
         <article>
             <h2>{{ article.title }}</h2>
-            <div class="metadata" > Ecrit le {{ article.createdAt | date('d/m/y')}}  à
+            <div class="metadata"> Ecrit le {{ article.createdAt | date('d/m/y')}}  à
                 {{ article.createdAt | date('H:i')}} dans le categorie  {{ article.category.title }}
                 politique</div>
             <div class="content">
-                <img src="{{ article.image }}" alt="">
+
                 {{ article.content | raw}}
             </div>
         </article>

@@ -9,6 +9,7 @@
         {{ form_row(formArticle.category )}}
         {{ form_row(formArticle.content, {'attr' : {'placeholder':"contenu de l'article"}}) }}
         {{ form_row(formArticle.image, {'attr' : {'placeholder':"Url de l'image "}}) }}
+        {{ form_row(formArticle.imageFile, {'attr' : {'placeholder':"Url de l'imageFile "}}) }}
 
         <button class="btn btn-success" type="submit">
             {% if editMode %}

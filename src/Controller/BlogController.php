@@ -102,10 +102,11 @@ class BlogController extends AbstractController
 
             return  $this->redirectToRoute('blog_show', ['id' => $article->getId() ]);
         }
-
+//         $id=$article->getUsers()->getId();
         return $this->render('blog/show.html.twig',[
             'article'=>$article ,
-            'commentForm'=> $form->createView() 
+//            'id' =>$id,
+            'commentForm'=> $form->createView()
         ]);
 
     }

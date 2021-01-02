@@ -4,7 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    app.path.product_images: /uploads/images
+    app.path.article_images: /uploads/images
     # ...
 services:
     # default configuration for services in *this* file
@@ -30,3 +30,6 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\EventListener\ImageCacheSubscriber:
+        tags:
+          { name: doctrine.event_subscribe }

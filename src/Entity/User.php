@@ -27,11 +27,6 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @Gedmo\Slug(fields={"title", "publicationDate"})
-     * @ORM\Column(length=128, unique=true)
-     */
-    private $slug;
-    /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Email()
      */
@@ -61,10 +56,6 @@ class User implements UserInterface
     public function getId(): ?int
     {
         return $this->id;
-    }
-    public function getSlug(): ?string
-    {
-        return $this->slug;
     }
 
     public function getEmail(): ?string
@@ -110,7 +101,7 @@ class User implements UserInterface
         return $this->articles;
     }
 
-    public function addArticle(Article $article): self
+    public function setArticle(Article $article): self
     {
         if (!$this->articles->contains($article)) {
             $this->articles[] = $article;
