@@ -47,4 +47,25 @@ class ArticleRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findByPoster($value)
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findByCategory($value)
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.aCategory = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 }

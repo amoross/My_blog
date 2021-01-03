@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets%}
+    <link rel="stylesheet" href="../css/profile.css">
+{% endblock %}
+
+{% block body%}
+
+    <body>
+    <div class="profile-container">
+        <div class="section-title">
+            <h2>Profile de {{ user.username}}</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-3 border-right">
+{#                <img src="{{ user.uPp }}" alt="pp" class="img-fluid profilepic">#}
+                <p> <i class="fas fa-user"></i> {{ user.username }} -
+                    <i class="fas fa-envelope-open-text"></i> {{ user.email}} </p>
+            </div>
+            <div class="col-md-9">
+                <div class="section-title">
+                    <h3>Articles de cet utilisateur</h3>
+                </div>
+                <table class="table table-striped">
+                    <tbody>
+                    {% for article in articles %}
+                        <tr>
+                            <th scope="row"class="col-6"><a href="{{ path('article', {'id' : article.Id}) }}">{{ article.title}}</a></th>
+{#                            <th scope="row"class="col-3">{{ article.aLikescpt}} <i class="fab fa-gratipay">   </th>#}
+{#                            <th scope="row"class="col-3">{{ article.aCmt}} <i class="fas fa-comments"></i>  </th>#}
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table class="table">
+            </div>
+        </div>
+
+    </body>
+{% endblock %}

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Comment;
+use App\Entity\User;
 use App\Form\ArticleType;
 use App\Form\CommentType;
 use App\Repository\ArticleRepository;
@@ -36,10 +37,22 @@ class BlogController extends AbstractController
     public function home()
     {
         return $this->render('blog/home.html.twig',[
-            'title' => 'Bienvenue sur le bloc'
+            'title' => 'Bienvenue sur le blog'
         ]);
 
     }
+
+    /**
+     * @Route("/profile/{id}", name="profile")
+     */
+    public function profile(User $user, ArticleRepository $repoArticle){
+        $articles = $repoArticle->findByPoster($user->getId());
+        return $this->render('blog/profile.html.twig', [
+            'user' => $user,
+            'articles'=> $articles,
+        ]);
+    }
+
 
     /**
      * @Route("/blog/new/a",name="blog_creat")
