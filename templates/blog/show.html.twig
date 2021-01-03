@@ -10,12 +10,11 @@
             {% endif %}
         </div>
 
-
         <article>
             <h2>{{ article.title }}</h2>
             <div class="metadata"> Ecrit le {{ article.createdAt | date('d/m/y')}}  à
                 {{ article.createdAt | date('H:i')}} dans la categorie  {{ article.category.title }}
-                politique</div>
+            </div>
             <div class="content">
 
                 {{ article.content | raw}}
