@@ -30,6 +30,6 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    App\EventListener\ImageCacheSubscriber:
-        tags:
-          { name: doctrine.event_subscribe }
+#    App\EventListener\ImageCacheSubscriber:
+#        tags:
+#          { name: doctrine.event_subscribe }
