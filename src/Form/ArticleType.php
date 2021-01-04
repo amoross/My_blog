@@ -23,10 +23,10 @@ class ArticleType extends AbstractType
 
              ])
             ->add('content')
-            ->add('image')
-            ->add('imageFile',FileType::class, [
-                'required'=> false,
-            ])
+//            ->add('image')
+//            ->add('imageFile',FileType::class, [
+//                'required'=> false,
+//            ])
         ;
     }
 

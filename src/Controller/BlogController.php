@@ -8,6 +8,7 @@ use App\Entity\User;
 use App\Form\ArticleType;
 use App\Form\CommentType;
 use App\Repository\ArticleRepository;
+use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -64,7 +65,7 @@ class BlogController extends AbstractController
 
         if (strcmp($request->get('_route'), 'blog_edit') == 0) {
             if (!$article) {
-                throw new \Exception('Article innexistant !');
+                throw new \Exception('Article inexistant !');
             }
             elseif ($article->getUsers()->getId() != $this->getUser()->getId())
             {
@@ -125,8 +126,9 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/blog/{id}/delete", name="blog_delete")
+     * @Route("/blog/{id}/delete/", name="blog_delete")
      */
+
     public function deleteArticle (Article $article,EntityManagerInterface $entityManager):Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');

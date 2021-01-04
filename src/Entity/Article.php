@@ -29,7 +29,7 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min=10,max=255)
+     * @Assert\Length(min=3,max=255)
       * @Groups("post:read")
      */
     private $title;
@@ -41,19 +41,19 @@ class Article
      */
     private $content;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $image;
-
-    /**
-     * @Vich\UploadableField(mapping="article_images", fileNameProperty="image")
-     * @var File
-     * @Assert\Image(
-     *     mimeTypes="image/jpeg"
-     * )
-     */
-    private $imageFile;
+//    /**
+//     * @ORM\Column(type="string", length=255,nullable=true)
+//     */
+//    private $image;
+//
+//    /**
+//     * @Vich\UploadableField(mapping="article_images", fileNameProperty="image")
+//     * @var File
+//     * @Assert\Image(
+//     *     mimeTypes="image/jpeg"
+//     * )
+//     */
+//    private $imageFile;
     /**
      * @ORM\Column(type="datetime")
      * @Groups("post:read")
@@ -76,11 +76,10 @@ class Article
      */
     private $users;
 
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private $updatedAt;
-
+//    /**
+//     * @ORM\Column(type="datetime", nullable=true)
+//     */
+//    private $updatedAt;
 
 
     public function __construct()
@@ -118,42 +117,42 @@ class Article
         return $this;
     }
 
-    /**
-     * @param null|File $imageFile
-     * @return self
-     */
-
-
-    public function setImageFile(?File $imageFile ) : self
-    {
-        $this->imageFile = $imageFile;
-
-        if ($this->image instanceof UploadedFile) {
-            $this->updatedAt = new \DateTime('now');
-        }
-        return $this;
-    }
-
-    /**
-     * @return File|null
-     */
-
-    public function getImageFile():?File
-    {
-        return $this->imageFile;
-    }
-
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
+//    /**
+//     * @param null|File $imageFile
+//     * @return self
+//     */
+//
+//
+//    public function setImageFile(?File $imageFile ) : self
+//    {
+//        $this->imageFile = $imageFile;
+//
+//        if ($this->image instanceof UploadedFile) {
+//            $this->updatedAt = new \DateTime('now');
+//        }
+//        return $this;
+//    }
+//
+//    /**
+//     * @return File|null
+//     */
+//
+//    public function getImageFile():?File
+//    {
+//        return $this->imageFile;
+//    }
+//
+//    public function getImage(): ?string
+//    {
+//        return $this->image;
+//    }
+//
+//    public function setImage(string $image): self
+//    {
+//        $this->image = $image;
+//
+//        return $this;
+//    }
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
@@ -232,17 +231,17 @@ class Article
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
+//    public function getUpdatedAt(): ?\DateTimeInterface
+//    {
+//        return $this->updatedAt;
+//    }
+//
+//    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+//    {
+//        $this->updatedAt = $updatedAt;
+//
+//        return $this;
+//    }
 
 
 

@@ -7,11 +7,9 @@
             {% for article in articles |sort  %}
             <div class="card" >
             <div class="card border-primary mb-3" style="max-width: 19rem;">
-                {% if article.image %}
-                <img src="{{ vich_uploader_asset(article,'imageFile') }}" class="card-img-top" alt="">
-                {% else %}
-                    <img src="/upload/images/blog_default.jpg"  class="card-img-top" alt="">
-                {% endif %}
+                <img src="{{ '/upload/images/blog_default.jpg'}}"
+                         alt="card-img-top">
+{#                {% endif %}#}
                 <div class="card-body">
                 <div class="card-title" > {{ article.title }}</div>
                 <div class="card-text">
