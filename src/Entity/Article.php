@@ -17,7 +17,6 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
  * @Vich\Uploadable
  */
-/** @Entity @EntityListeners({"ImageCacheSubscriber"}) */
 class Article
 {
     /**
