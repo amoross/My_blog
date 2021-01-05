@@ -5,13 +5,32 @@
         <h1>Inscription sur le site </h1>
 
         {{ form_start(formRegister) }}
+<div class="mb-3 row">
+    <div class="col-sm-10">
         {{form_row(formRegister.username,  {'label': 'Nom d\'utilisation','attr' : {'placeholder':'name'}}) }}
-        {{form_row(formRegister.email,  {'label': 'adresse emaim','attr' : {'placeholder':'Adresse Email'}}) }}
+    </div>
+</div>
+        <div class="mb-3 row">
+            <div class="col-sm-10">
+        {{form_row(formRegister.email,  {'label': 'adresse email','attr' : {'placeholder':'Adresse Email'}}) }}
+        </div>
+        </div>
+<div class="mb-3 row">
+    <div class="col-sm-10">
         {{form_row(formRegister.password,  {'label': 'mot de passe','attr' : {'placeholder':'mot de passe'}}) }}
+    </div>
+</div>
+        <div class="mb-3 row">
+            <div class="col-sm-10">
         {{form_row(formRegister.confirm_password,  {'label': 'comfirmation du mot de passe',
             'attr' : {'placeholder':'confirmation du mot de passe'}}) }}
-
-        <button class="btn btn-success" type="submit"> Inscription </button>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-sm-10">
+                <button class="btn btn-success" type="submit"> Inscription </button>
+            </div>
+        </div>
         {{ form_end(formRegister) }}
 
 

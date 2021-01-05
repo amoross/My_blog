@@ -6,19 +6,24 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 {#        <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">#}
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href="{{ asset('css/index.css') }}" type="text/css" rel="stylesheet">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width: 100%;">
-        <a class="navbar-brand" href="{{ path('blog') }}">Blog</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-{#            <span class="navbar-toggler-icon"></span>#}
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark inherit-top" id="mainNav">
+        <div class="container" >
+        <a class="navbar-brand" href="{{ path('home') }}">Accueil</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="{{ path('blog') }}">article
+                    <a class="nav-link" href="{{ path('blog') }}">Articles
                     </a>
                 </li>
                 {% if app.user %}
@@ -26,9 +31,6 @@
                     <a class="nav-link" href="{{ path('blog_creat') }}">creer un article</a></li>
 
                 {% endif %}
-            </ul>
-
-            <ul class="navbar-nav">
                 {% if not app.user %}
                     <li class="nav-item ">
                         <a class="nav-link" href="{{ path('security_registration') }}">Inscription
@@ -44,10 +46,22 @@
                 {% endif %}
             </ul>
         </div>
+        </div>
     </nav>
     <div class="container">
         {% block body %}{% endblock %}
     </div>
     {% block javascripts %}{% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <footer class="bg-light text-center text-lg-start" style="position: absolute; bottom: 0px; width: 100%;">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2020 Copyright:
+            <a class="text-dark" href="{{ path('home') }}">Amara-App.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
     </body>
 </html>

@@ -6,26 +6,29 @@
 
         <form action="{{ path('security_login') }}" method="post">
             <fieldset>
-                <div>
-                <div class="form-group">
+                <div class="mb-3 row">
                     <label for="exampleInputEmail1">Email address</label>
+                    <div class="col-sm-10">
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                            placeholder="Enter email" required name="_username">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+{#                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>#}
                 </div>
-                <div class="form-group">
+                </div>
+                <div class="mb-3 row">
                     <label for="exampleInputPassword1">Password</label>
+                    <div class="col-sm-10">
                     <input type="password" class="form-control" id="exampleInputPassword1"
                            required name="_password" placeholder="Password">
                 </div>
-        </>
-
-        <div class="form-group">
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-10">
                     <button class="btn btn-success" type="submit"> Connection </button>
                 </div>
+                </div>
+
             </fieldset>
 
         </form>
-
 
     {% endblock %}
